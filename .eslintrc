@@ -9,6 +9,7 @@
     "node": true
   },
   "rules": {
-    "semi": ["warn", "always"]
+    "semi": ["warn", "always"],
+    "import/no-unresolved": ["error", { "commonjs": true }]
   }
 }
