@@ -12,8 +12,8 @@ module.exports.inputStream = input => {
     } else {
       col += 1;
     }
-    return char
-  }
+    return char;
+  };
 
   const peek = () => input.charAt(pos);
 
@@ -21,12 +21,12 @@ module.exports.inputStream = input => {
 
   const croak = msg => {
     throw new Error(msg + " (" + line + ":" + col + ")");
-  }
+  };
 
   return {
     next,
     peek,
     eof,
     croak,
-  }
-}
+  };
+};

@@ -1,3 +1,3 @@
-const { inputStream } = require('./inputStream')
+const { inputStream } = require('./inputStream');
 
-console.log(inputStream('kek'))
+console.log(inputStream('kek'));

@@ -7,4 +7,4 @@ module.exports.TOKEN_TYPES = {
   INTEGER: '0123456789'.split(''),
   WHITESPACE: '\n '.split(''),
   OPERATOR: '='.split(''),
-}
+};
