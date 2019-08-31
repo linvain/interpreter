@@ -1,11 +1,11 @@
-const fs = require('fs');
-const { InputStream } = require('./InputStream');
-const { TokenStream } = require('./TokenStream');
+import fs from 'fs';
+import { InputStream } from './InputStream';
+import { TokenStream } from './TokenStream';
 
-const input = fs.readFileSync('<directory>');
+const input = fs.readFileSync('/mnt/e/Projects/interpreter/input.xs', "utf8");
+const inputStream = InputStream(input);
+const tokenStream = TokenStream(inputStream);
 
-const stream = TokenStream(InputStream(input));
-
-while (!stream.eof()) {
-  console.log(stream.next());
+while (!tokenStream.eof()) {
+  console.log(tokenStream.next());
 }

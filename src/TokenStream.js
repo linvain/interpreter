@@ -1,13 +1,14 @@
-const { TOKEN_TYPES } = require('./TOKEN_TYPES');
+import { TOKEN_TYPES } from './TOKEN_TYPES';
 
-module.exports.tokenStream = input => {
+export const TokenStream = input => {
   let current = null;
 
   const isWhitespace = char => TOKEN_TYPES.WHITESPACE.includes(char);
   const isDigit = char => TOKEN_TYPES.INTEGER.includes(char);
   const isIdent = char => TOKEN_TYPES.IDENT.includes(char);
   const isOperator = char => TOKEN_TYPES.OPERATOR.includes(char);
-
+  const isPunctuation = char => TOKEN_TYPES.PUNCTUATION.includes(char);
+  
   const readNext = () => {
     readWhile(isWhitespace);
     if (input.eof()) return null;
@@ -16,7 +17,13 @@ module.exports.tokenStream = input => {
     if (isDigit(char)) return readNumber();
     if (isIdent(char)) return readIdent();
     if (isOperator(char)) return readOperator();
+    if (isPunctuation(char)) return readPunctuation();
     input.croak("Can't handle character: " + char);
+  };
+
+  const readPunctuation = () => {
+    const punctuation = input.next();
+    return { type: 'PUNCTUATION', value: punctuation };
   };
 
   const readOperator = () => {

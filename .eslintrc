@@ -1,4 +1,7 @@
 {
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
@@ -9,7 +12,6 @@
     "node": true
   },
   "rules": {
-    "semi": ["warn", "always"],
-    "import/no-unresolved": ["error", { "commonjs": true }]
+    "semi": ["warn", "always"]
   }
 }

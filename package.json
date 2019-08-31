@@ -1,11 +1,12 @@
 {
   "name": "interpreter",
   "version": "1.0.0",
+  "type": "module",
   "repository": "git@github.com:linvain/interpreter.git",
   "author": "linvain <linvain@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node src",
+    "start": "node --experimental-modules --es-module-specifier-resolution=node src/index.js",
     "lint": "eslint 'src/**/*.js'"
   },
   "devDependencies": {

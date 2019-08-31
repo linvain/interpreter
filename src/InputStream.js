@@ -1,4 +1,4 @@
-module.exports.inputStream = input => {
+export const InputStream = input => {
   let pos = 0;
   let line = 1;
   let col = 0;
