@@ -25,7 +25,7 @@ module.exports.tokenStream = input => {
 
   const readIdent = () => {
     const ident = readWhile(isIdent);
-    return { type: IDENT, value: ident };
+    return { type: "IDENT", value: ident };
   }
 
   const readNumber = () => {

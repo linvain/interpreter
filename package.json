@@ -5,7 +5,8 @@
   "author": "linvain <linvain@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node src"
+    "start": "node src",
+    "lint": "eslint 'src/**/*.js'"
   },
   "devDependencies": {
     "eslint": "^6.3.0"
