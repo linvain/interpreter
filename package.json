@@ -9,6 +9,7 @@
     "lint": "eslint 'src/**/*.js'"
   },
   "devDependencies": {
-    "eslint": "^6.3.0"
+    "eslint": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2"
   }
 }

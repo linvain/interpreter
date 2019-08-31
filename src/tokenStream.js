@@ -16,6 +16,7 @@ module.exports.tokenStream = input => {
     if (isDigit(char)) return readNumber();
     if (isIdent(char)) return readIdent();
     if (isOperator(char)) return readOperator();
+    input.croak("Can't handle character: " + char);
   };
 
   const readOperator = () => {

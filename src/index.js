@@ -1,3 +1,11 @@
-const { inputStream } = require('./inputStream');
+const fs = require('fs');
+const { InputStream } = require('./InputStream');
+const { TokenStream } = require('./TokenStream');
 
-console.log(inputStream('kek'));
+const input = fs.readFileSync('<directory>');
+
+const stream = TokenStream(InputStream(input));
+
+while (!stream.eof()) {
+  console.log(stream.next());
+}
