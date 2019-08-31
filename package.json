@@ -1,0 +1,8 @@
+{
+  "name": "interpreter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:linvain/interpreter.git",
+  "author": "linvain <linvain@protonmail.com>",
+  "license": "MIT"
+}
