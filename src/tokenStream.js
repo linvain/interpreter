@@ -52,4 +52,20 @@ module.exports.tokenStream = input => {
     current = null;
     return token || readNext();
   };
+
+  const peek = () => {
+    if (!current) current = readNext();
+    return current;
+  };
+
+  const eof = () => {
+    return peek() === null;
+  };
+
+  return {
+    next,
+    peek,
+    eof,
+    croak: input.croak,
+  };
 };
