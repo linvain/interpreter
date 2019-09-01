@@ -1,13 +1,15 @@
-import { TOKEN_TYPES } from "./TOKEN_TYPES";
+import { CHAR_TYPES } from "./CHAR_TYPES";
 
 export const TokenStream = input => {
   let current = null;
 
-  const isWhitespace = char => TOKEN_TYPES.WHITESPACE.includes(char);
-  const isDigit = char => TOKEN_TYPES.INTEGER.includes(char);
-  const isIdent = char => TOKEN_TYPES.IDENT.includes(char);
-  const isOperator = char => TOKEN_TYPES.OPERATOR.includes(char);
-  const isPunctuation = char => TOKEN_TYPES.PUNCTUATION.includes(char);
+  const isWhitespace = char => CHAR_TYPES.WHITESPACE.includes(char);
+  const isDigit = char => CHAR_TYPES.INTEGER.includes(char);
+  const isIdent = char => CHAR_TYPES.IDENT.includes(char);
+  const isOperator = char => CHAR_TYPES.OPERATOR.includes(char);
+  const isPunctuation = char => CHAR_TYPES.PUNCTUATION.includes(char);
+  const isStringDelimiter = char => CHAR_TYPES.STRING_DELIMITER.includes(char);
+  const isStringContent = char => CHAR_TYPES.STRING_CONTENT.includes(char);
   
   const readNext = () => {
     readWhile(isWhitespace);
@@ -18,7 +20,19 @@ export const TokenStream = input => {
     if (isIdent(char)) return readIdent();
     if (isOperator(char)) return readOperator();
     if (isPunctuation(char)) return readPunctuation();
-    input.croak("Can't handle character: " + char);
+    if (isStringDelimiter(char)) return readString();
+    input.croak(`Can't handle character "${char}"`);
+  };
+
+  const readString = () => {
+    input.next(); // skip quote
+    const stringContent = readWhile(isStringContent);
+    const maybeEndDelimiter = input.next();
+    if (isStringDelimiter(maybeEndDelimiter)) {
+      return { type: "STRING", value: stringContent };
+    } else {
+      input.croak(`"${maybeEndDelimiter}" doesn't match string content or delimiter`);
+    }
   };
 
   const readPunctuation = () => {

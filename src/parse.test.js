@@ -38,13 +38,15 @@ createTest("string = 'string';", {
 createTest("one = 1; string = 'string'", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "one", value: 1 }
+    { type: "DECLARATION", name: "one", value: 1 },
+    { type: "DECLARATION", name: "string", value: "string" }
   ]
 });
 
 createTest("one = 1; string = 'string';", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "one", value: 1 }
+    { type: "DECLARATION", name: "one", value: 1 },
+    { type: "DECLARATION", name: "string", value: "string" }
   ]
 });

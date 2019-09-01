@@ -1,8 +1,18 @@
 export const createAST = tokenStream => {
   const expectNext = (...types) => {
-    const next = tokenStream.peek().type;
-    if (!types.includes(next)) {
-      tokenStream.croak(`Not expected type ${next}, expected ${types}`);
+    const nextType = tokenStream.peek().type;
+    if (!types.includes(nextType)) {
+      tokenStream.croak(`Not expected type ${nextType}, expected ${types}`);
+    }
+  };
+
+  const matchNext = object => {
+    const nextType = tokenStream.peek().type;
+    const handler = object[nextType];
+    if (handler === undefined) {
+      tokenStream.croak(`Not expected type ${nextType}, expected ${Object.keys(object)}`);
+    } else {
+      handler();
     }
   };
 
@@ -13,8 +23,10 @@ export const createAST = tokenStream => {
       expectNext("OPERATOR");
       const name = token.value;
       tokenStream.next();
-      expectNext("INTEGER");
-      program.push({ type: "DECLARATION", name, value: tokenStream.next().value });
+      matchNext({
+        INTEGER: () => program.push({ type: "DECLARATION", name, value: tokenStream.next().value }),
+        STRING: () => program.push({ type: "DECLARATION", name, value: tokenStream.next().value }),
+      });
     }
   }
   return { type: "PROGRAM", body: program };
