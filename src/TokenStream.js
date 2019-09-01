@@ -1,4 +1,4 @@
-import { TOKEN_TYPES } from './TOKEN_TYPES';
+import { TOKEN_TYPES } from "./TOKEN_TYPES";
 
 export const TokenStream = input => {
   let current = null;
@@ -23,7 +23,7 @@ export const TokenStream = input => {
 
   const readPunctuation = () => {
     const punctuation = input.next();
-    return { type: 'PUNCTUATION', value: punctuation };
+    return { type: "PUNCTUATION", value: punctuation };
   };
 
   const readOperator = () => {
@@ -38,7 +38,7 @@ export const TokenStream = input => {
 
   const readNumber = () => {
     const numberString = readWhile(isDigit);
-    return { type: 'INTEGER', value: Number(numberString)};
+    return { type: "INTEGER", value: Number(numberString)};
   };
 
   const readComment = () => {

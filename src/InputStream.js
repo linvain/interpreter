@@ -6,7 +6,7 @@ export const InputStream = input => {
   const next = () => {
     const char = input.charAt(pos);
     pos += 1;
-    if (char === '\n') {
+    if (char === "\n") {
       line += 1;
       col = 0;
     } else {
