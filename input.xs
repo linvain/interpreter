@@ -1,14 +1,20 @@
-# everything is immutable
-# so no 'const' or 'let'
+# VARIABLE DECLARATION
+# Everything is immutable so no keyword needed
 
-# integer
-one = 1;
+# Literals:
+age = 21;        # integer
+name = 'Evgeny'; # string
+isHuman = true;  # bool
 
-# string
-string = 'Hello, World!';
-
-# bool
-definitely = true;
+# Functions:
+# Parentheses are mandatory
+double = (n) -> {
+  n * 2;
+};
+logDouble = (n) -> {
+  log(n);
+  n * 2;
+};
 
 # list
 # list = [1, 2, 3];

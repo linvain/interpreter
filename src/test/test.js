@@ -21,7 +21,11 @@ testAST("isHuman = true;", {
   ]
 });
 
-testAST("age = 21; name = 'Evgeny'; isHuman = true;", {
+testAST(`
+age = 21;
+name = 'Evgeny';
+isHuman = true;
+`, {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "age", value: 21 },
@@ -30,7 +34,10 @@ testAST("age = 21; name = 'Evgeny'; isHuman = true;", {
   ]
 });
 
-testAST("good = true; notBad = good;", {
+testAST(`
+good = true;
+notBad = good;
+`, {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "good", value: true },
