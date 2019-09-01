@@ -6,8 +6,8 @@
   "author": "linvain <linvain@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "babel src --out-dir dist && node dist",
-    "test": "babel test --out-dir test-dist && jest test-dist",
+    "watch": "rm -rf dist && babel src --out-dir dist --watch",
+    "test": "jest dist/test",
     "lint": "eslint 'src/**/*.js'"
   },
   "devDependencies": {

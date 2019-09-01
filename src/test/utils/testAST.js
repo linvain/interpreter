@@ -1,4 +1,4 @@
-import { parse } from "../../src/parse";
+import { parse } from "../../parse";
 
 export const testAST = (code, expectedResult) => {
   test(`parses "${code}"`, () => {
