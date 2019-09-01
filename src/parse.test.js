@@ -1,12 +1,16 @@
 import { parse } from "./parse";
 
-test("parses 'one = 1;'", () => {
-  const expected = [
-    { type: "IDENT", value: "one" },
-    { type: "OPERATOR", value: "=" },
-    { type: "INTEGER", value: 1 },
-    { type: "PUNCTUATION", value: ";" }
-  ];
+const createTest = (code, expectedResult) => {
+  test(`parses ${code}`, () => {
+    const result = parse(code);
+    expect(result).toStrictEqual(expectedResult);
+  });
+};
 
-  expect(parse("one = 1;")).toStrictEqual(expected);
-});
+createTest("one = 1", [
+  { type: "DECLARATION", name: "one", value: 1 }
+]);
+
+createTest("one = 1;", [
+  { type: "DECLARATION", name: "one", value: 1 }
+]);
