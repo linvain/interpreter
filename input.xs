@@ -7,7 +7,7 @@ name = 'Evgeny'; # string
 isHuman = true;  # bool
 
 # Functions:
-# Parentheses are mandatory
+# Parentheses and curly brackets are mandatory
 double = (n) -> {
   n * 2;
 };
