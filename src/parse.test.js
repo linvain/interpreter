@@ -1,41 +1,41 @@
 import { parse } from "./parse";
 
-const createTest = (code, expectedResult) => {
+const testAST = (code, expectedResult) => {
   test(`parses "${code}"`, () => {
     const result = parse(code);
     expect(result).toStrictEqual(expectedResult);
   });
 };
 
-createTest("age = 21", {
+testAST("age = 21", {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "age", value: 21 }
   ]
 });
 
-createTest("age = 21;", {
+testAST("age = 21;", {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "age", value: 21 }
   ]
 });
 
-createTest("name = 'Evgeny'", {
+testAST("name = 'Evgeny'", {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "name", value: "Evgeny" }
   ]
 });
 
-createTest("name = 'Evgeny';", {
+testAST("name = 'Evgeny';", {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "name", value: "Evgeny" }
   ]
 });
 
-createTest("age = 21; name = 'Evgeny'", {
+testAST("age = 21; name = 'Evgeny'", {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "age", value: 21 },
@@ -43,7 +43,7 @@ createTest("age = 21; name = 'Evgeny'", {
   ]
 });
 
-createTest("age = 21; name = 'Evgeny';", {
+testAST("age = 21; name = 'Evgeny';", {
   type: "PROGRAM",
   body: [
     { type: "DECLARATION", name: "age", value: 21 },
