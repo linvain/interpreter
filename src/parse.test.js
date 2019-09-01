@@ -7,10 +7,16 @@ const createTest = (code, expectedResult) => {
   });
 };
 
-createTest("one = 1", [
-  { type: "DECLARATION", name: "one", value: 1 }
-]);
+createTest("one = 1", {
+  type: "PROGRAM",
+  body: [
+    { type: "DECLARATION", name: "one", value: 1 }
+  ]
+});
 
-createTest("one = 1;", [
-  { type: "DECLARATION", name: "one", value: 1 }
-]);
+createTest("one = 1;", {
+  type: "PROGRAM",
+  body: [
+    { type: "DECLARATION", name: "one", value: 1 }
+  ]
+});
