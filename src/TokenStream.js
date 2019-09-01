@@ -47,7 +47,13 @@ export const TokenStream = input => {
 
   const readIdent = () => {
     const ident = readWhile(isIdent);
-    return { type: "IDENT", value: ident };
+    if (ident === "true") {
+      return { type: "BOOL", value: true };
+    } else if (ident === "false") {
+      return { type: "BOOL", value: false };
+    } else {
+      return { type: "IDENT", value: ident };
+    }
   };
 
   const readNumber = () => {
