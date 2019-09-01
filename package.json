@@ -6,10 +6,9 @@
   "author": "linvain <linvain@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node dist",
-    "build": "./node_modules/.bin/babel src --out-dir dist",
-    "lint": "eslint 'src/**/*.js'",
-    "test": "jest dist"
+    "start": "babel src --out-dir dist && node dist",
+    "test": "babel test --out-dir test-dist && jest test-dist",
+    "lint": "eslint 'src/**/*.js'"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

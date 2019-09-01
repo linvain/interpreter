@@ -5,10 +5,10 @@
 one = 1;
 
 # string
-# string = 'Hello, World!';
+string = 'Hello, World!';
 
 # bool
-# definitely = true;
+definitely = true;
 
 # list
 # list = [1, 2, 3];
