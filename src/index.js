@@ -1,11 +1,8 @@
 import fs from 'fs';
-import { InputStream } from './InputStream';
-import { TokenStream } from './TokenStream';
+import { parse } from './parse';
 
 const input = fs.readFileSync('/mnt/e/Projects/interpreter/input.xs', "utf8");
-const inputStream = InputStream(input);
-const tokenStream = TokenStream(inputStream);
 
-while (!tokenStream.eof()) {
-  console.log(tokenStream.next());
-}
+const ast = parse(input);
+
+console.log(ast);

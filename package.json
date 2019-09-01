@@ -7,10 +7,12 @@
   "license": "MIT",
   "scripts": {
     "start": "node --experimental-modules --es-module-specifier-resolution=node src/index.js",
-    "lint": "eslint 'src/**/*.js'"
+    "lint": "eslint 'src/**/*.js'",
+    "test": "jest"
   },
   "devDependencies": {
     "eslint": "^6.3.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0"
   }
 }
