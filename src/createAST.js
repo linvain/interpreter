@@ -27,6 +27,10 @@ export const createAST = tokenStream => {
         INTEGER: () => program.push({ type: "DECLARATION", name, value: tokenStream.next().value }),
         STRING: () => program.push({ type: "DECLARATION", name, value: tokenStream.next().value }),
         BOOL: () => program.push({ type: "DECLARATION", name, value: tokenStream.next().value }),
+        IDENT: () => program.push({ type: "DECLARATION", name, value: {
+          type: "IDENT",
+          name: tokenStream.next().value
+        }}),
       });
     }
   }

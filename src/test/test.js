@@ -29,3 +29,14 @@ testAST("age = 21; name = 'Evgeny'; isHuman = true;", {
     { type: "DECLARATION", name: "isHuman", value: true }
   ]
 });
+
+testAST("good = true; notBad = good;", {
+  type: "PROGRAM",
+  body: [
+    { type: "DECLARATION", name: "good", value: true },
+    { type: "DECLARATION", name: "notBad", value: {
+        type: "IDENT", name: "good"
+      }
+    }
+  ]
+});
