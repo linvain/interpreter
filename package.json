@@ -7,12 +7,13 @@
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all clean transpile --parallel transpile:watch test:watch",
-    "build": "yarn lint --fix && yarn test && yarn transpile",
+    "build": "npm-run-all lint:fix test transpile",
     "transpile": "babel src --out-dir dist",
     "transpile:watch": "babel src --out-dir dist --watch",
     "test": "jest dist/test",
     "test:watch": "jest dist/test --watch",
     "lint": "eslint 'src/**/*.js'",
+    "lint:fix": "eslint 'src/**/*.js' --fix",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
