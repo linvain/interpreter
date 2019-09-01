@@ -35,8 +35,7 @@ testAST("good = true; notBad = good;", {
   body: [
     { type: "DECLARATION", name: "good", value: true },
     { type: "DECLARATION", name: "notBad", value: {
-        type: "IDENT", name: "good"
-      }
-    }
+      type: "IDENT", name: "good"
+    }}
   ]
 });

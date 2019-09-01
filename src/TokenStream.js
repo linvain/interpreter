@@ -58,7 +58,7 @@ export const TokenStream = input => {
 
   const readNumber = () => {
     const numberString = readWhile(isDigit);
-    return { type: "INTEGER", value: Number(numberString)};
+    return { type: "INTEGER", value: Number(numberString) };
   };
 
   const readComment = () => {
