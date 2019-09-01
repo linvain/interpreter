@@ -7,46 +7,46 @@ const createTest = (code, expectedResult) => {
   });
 };
 
-createTest("one = 1", {
+createTest("age = 21", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "one", value: 1 }
+    { type: "DECLARATION", name: "age", value: 21 }
   ]
 });
 
-createTest("one = 1;", {
+createTest("age = 21;", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "one", value: 1 }
+    { type: "DECLARATION", name: "age", value: 21 }
   ]
 });
 
-createTest("string = 'string'", {
+createTest("name = 'Evgeny'", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "string", value: "string" }
+    { type: "DECLARATION", name: "name", value: "Evgeny" }
   ]
 });
 
-createTest("string = 'string';", {
+createTest("name = 'Evgeny';", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "string", value: "string" }
+    { type: "DECLARATION", name: "name", value: "Evgeny" }
   ]
 });
 
-createTest("one = 1; string = 'string'", {
+createTest("age = 21; name = 'Evgeny'", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "one", value: 1 },
-    { type: "DECLARATION", name: "string", value: "string" }
+    { type: "DECLARATION", name: "age", value: 21 },
+    { type: "DECLARATION", name: "name", value: "Evgeny" }
   ]
 });
 
-createTest("one = 1; string = 'string';", {
+createTest("age = 21; name = 'Evgeny';", {
   type: "PROGRAM",
   body: [
-    { type: "DECLARATION", name: "one", value: 1 },
-    { type: "DECLARATION", name: "string", value: "string" }
+    { type: "DECLARATION", name: "age", value: 21 },
+    { type: "DECLARATION", name: "name", value: "Evgeny" }
   ]
 });
