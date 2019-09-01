@@ -1,7 +1,7 @@
 import { parse } from "./parse";
 
 const createTest = (code, expectedResult) => {
-  test(`parses ${code}`, () => {
+  test(`parses "${code}"`, () => {
     const result = parse(code);
     expect(result).toStrictEqual(expectedResult);
   });
